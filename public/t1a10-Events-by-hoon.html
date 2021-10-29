@@ -44,7 +44,13 @@ function myFunction() {
 }
 </script>
 
+Enter your name: <input type="text" id="fname" onfocus="myFunction()">
 
+<script>
+function myFunction() {
+  document.getElementById("fname").style.backgroundColor = "red";
+}
+</script>
 
 
 <br>
