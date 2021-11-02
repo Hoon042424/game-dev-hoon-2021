@@ -26,15 +26,19 @@ Events are HTML code that activates Javascript code
 }">
 
 <div id="myDiv01">...</div>
+   
 
-
+<br><br>
 <b id="myB01" onMouseOut="{ 
    document.getElementById('myB01').innerHTML = 'This is bold'
 }"     onMouseOver="{
    document.getElementById('myB01').innerHTML = 'This is cool'     
 }"    > This is bold</b>
+   
+<div id="myDiv02">...</div>
 
-
+   
+<br><br>
 <p ondblclick="myFunction()">Double-click this paragraph to trigger a function.</p>
 
 <p id="demo"></p>
@@ -44,7 +48,11 @@ function myFunction() {
   document.getElementById("demo").innerHTML = "Hello World";
 }
 </script>
+   
+<div id="myDiv03">...</div>
 
+   
+<br><br>
 Enter your name: <input type="text" id="fname" onfocus="myFunction()">
 
 <script>
@@ -52,6 +60,8 @@ function myFunction() {
   document.getElementById("fname").style.backgroundColor = "red";
 }
 </script>
+   
+<div id="myDiv04">...</div>
 
 
 <br>
