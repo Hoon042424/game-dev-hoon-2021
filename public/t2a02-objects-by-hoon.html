@@ -23,6 +23,19 @@ Nothing: <input type=text id="myText01" value="Useles at the moment"><br>
 
 <input type=button value="Example Object Set and Show" onClick="{
 
-  let myPERSON = {
+  let myPerson = {
     'firstName' : 'John',
-   
+    'lastName'  : 'Doe',
+    'age'       :  50,
+    'eyColor'   : 'blue'
+  }
+ 
+   document.getElementById('myDiv01').innerHTML = '<br>myPerson Object has properties: <br>'
+   document.getElementById('myDiv01').innerHTML += 'firstName: ' + myPerson.firstName + '<br>'
+   document.getElementById('myDiv01').innerHTML += '<br>myPerson 'You do the others <br> '
+
+}">
+
+<div id="myDiv01">...</div>
+
+<br>
