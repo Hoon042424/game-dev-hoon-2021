@@ -121,9 +121,22 @@ Max Array Entry: <input type=text id="myText05" value="26"><br>
 }">
 
 <div id="myDiv05">...</div>
+<br><br>
 
+<script>
+myArray2 = Array(20)
+</script>
 
-
-<br>
+<input type=text id=myText06><input type=number min=0 max=20 id=myNumber><input type=button value=Enter onclick="{
+	myArray2[document.getElementById('myNumber').value] = document.getElementById('myText06').value
+		
+}"><br>
+<input type=button value=Show onclick="{
+document.getElementById('myDiv02').innerHTML = ' '
+			for(myLoop=0; myLoop<=20; myLoop++){
+				document.getElementById('myDiv06').innerHTML += 'myArray2[' + myLoop + '] = ' + myArray2[myLoop] + '<br>'
+}
+}">
+<div id=myDiv06>...</div>
 
 
