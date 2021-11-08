@@ -61,7 +61,29 @@ function myFunction2() {
 }
 </script>
    
+<br><br>  
+<input type="text" oncopy="myFunction4()" value="Try to copy this text">
 
+<p id="demo"></p>
+
+<script>
+function myFunction4() {
+  document.getElementById("copy").innerHTML = "You copied text!"
+}
+</script>
+
+
+<br><br>
+Enter your name in lower case: <input type="text" name="fname" id="fname" onblur="myFunction5()">
+
+<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
+<script>
+function myFunction5() {
+  var x = document.getElementById("fname");
+  x.value = x.value.toUpperCase();
+}
+</script>
 
 <br>
 
