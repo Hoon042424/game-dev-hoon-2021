@@ -1,4 +1,4 @@
-<body onload="myFunction()">
+<body onload="myFunction3()">
 
    
 Version 0.0.1
@@ -39,29 +39,28 @@ Events are HTML code that activates Javascript code
 
    
 <br><br>
-<p ondblclick="myFunction()">Double-click this paragraph to trigger a function.</p>
+<p ondblclick="myFunction1()">Double-click this paragraph to trigger a function.</p>
 
 <p id="demo"></p>
 
 <script>
-function myFunction() {
+function myFunction1() {
   document.getElementById("demo").innerHTML = "Hello World";
 }
 </script>
    
-<div id="myDiv03">...</div>
+
 
    
 <br><br>
-Enter your name: <input type="text" id="fname" onfocus="myFunction()">
+Enter your name: <input type="text" id="fname" onfocus="myFunction2()">
 
 <script>
-function myFunction() {
+function myFunction2() {
   document.getElementById("fname").style.backgroundColor = "red";
 }
 </script>
    
-<div id="myDiv04">...</div>
 
 
 <br>
@@ -72,7 +71,7 @@ onKeyDown, onKeyPress, onDragstart, onTouchStart, onTouchEnd, onTouchMove
 
 
 <script>
-function myFunction() {
+function myFunction3() {
   alert("Welcome!");
 }
 </script>
