@@ -9,17 +9,17 @@ Version 0.0.1
 
 Events are HTML code that activates Javascript code
 
-<h4> Example Functions code</h4>
+<h4> Example working code </h4>
 <pre>
 &lt input type=button value="Example onClick" onClick="{
    alert('hi')
 }" &gt
 </pre>
 
-<h4> Example working code</h4>
+<h4> response to hello</h4>
 
 
-<input type=text id="myText01" value="Anyone?"><br>
+<input type=text id="myText01" value="Respond"><br>
 
 <input type=button value="Hello?" onClick="{ alert('hi')
    document.getElementById('myDiv01').innerHTML = document.getElementById('myText01').value
@@ -85,8 +85,53 @@ function myFunction5() {
 }
 </script>
 
-<br>
+<br><br>
+<style>
+.droptarget {
+  float: left; 
+  width: 100px; 
+  height: 35px;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+</head>
+<body>
 
+<p>Drag the p element back and forth between the two rectangles:</p>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">Drag me!</p>
+</div>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<p style="clear:both;" id="drag"></p>
+
+<script>
+function dragStart(event) {
+  event.dataTransfer.setData("Text", event.target.id);
+}
+
+function dragging(event) {
+  document.getElementById("drag").innerHTML = "The p element is being dragged";
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("Text");
+  event.target.appendChild(document.getElementById(data));
+  document.getElementById("drag").innerHTML = "The p element was dropped";
+}
+</script>
+   
+   
+   
 You do at least 8 other events:<br>
 onClick, onDbClick, onChange, onBlue, onFocus, onMouseMove, onTouch,
 onKeyDown, onKeyPress, onDragstart, onTouchStart, onTouchEnd, onTouchMove
