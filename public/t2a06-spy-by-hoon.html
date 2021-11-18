@@ -104,3 +104,23 @@
 <textarea id="myArea03" rows=4 cols=70></textarea><br>
 
 
+<br><br>
+<hr>
+
+<textarea id="myArea04" rows=4 cols=70>Hello how are you</textarea><br>
+
+<input type=button value="encrypt" onclick="{
+	myString01 = document.getElementById('myArea04').value
+    myTemp01 = btoa(myString01)
+    document.getElementById('myArea05').value = myTemp01
+    }"><br><br>
+
+
+<textarea id="myArea05" rows=4 cols=70></textarea><br>
+
+<input type=button value="decrypt" onclick="{
+	myString02 = document.getElementById('myArea05').value
+    myTemp02 = atob(myString02)
+    document.getElementById('myArea06').value = myTemp02
+    }"><br><br>
+
