@@ -40,7 +40,14 @@ h2 {
   
 <input type=button value="Hunt Mario" onclick="{
   document.getElementById('myImage02').style.left = parseInt(document.getElementById('myImage02').style.left) + 10 + 'px'
-}"><br><br>
+}">
+  
+<input type=button value="Mario" onclick="{
+  clearInterval(myClock01)
+  myClock01 = setInterval(function(){
+     document.getElementById('myButton02').click() 
+  }, 70)
+}"><br><br>  
   
 
   
