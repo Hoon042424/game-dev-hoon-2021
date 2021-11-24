@@ -17,6 +17,7 @@ h2 {
 <script>
    let myGlobalX = 0
    let myClock
+   let myClock01
 </script>
 
 <input id="myButton01" type=button value="background move left" onclick="{
@@ -39,7 +40,13 @@ h2 {
   
 <input type=button value="Hunt Mario" onclick="{
   document.getElementById('myImage02').style.left = parseInt(document.getElementById('myImage02').style.left) + 10 + 'px'
-}"><br><br>
+}">
+  
+<input type=button id="myButton02" value="Mario Escapes" onclick="{
+  clearInterval(myClock01)
+  myClock01 = setInterval(function(){
+     document.getElementById('myButton02').click() 
+  }, 50)<br><br>
   
 <br><br><br><br><br><br>
 <img id="myImage02" style="position:relative; width:100px; height:100px; top:0px; left:0px;" src="https://i.pinimg.com/originals/f6/b7/36/f6b7365ef48a81862ed0179470c998bc.gif">  
