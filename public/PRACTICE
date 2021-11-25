@@ -33,20 +33,6 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.stroke();
 }">
 
-
-<input type=button value=".fillText('Hello World', 400, 100)" onclick="{
-   myContext.font = '20px Arial';
-   myContext.fillText('Hello World', 400, 100);
-   myContext.translate(400, 100);  
-   myContext.rotate(60 * Math.PI / 180); 
-   myContext.fillText('Hello World', 10, 10);
-   myContext.stroke();
-   myContext.resetTransform();  
-   //myContext.rotate(-60 * Math.PI / 180); 
-}">
-
-
-
 <input type=button value=".quadraticCurveTo(100,220,240,110)" onclick="{
    myContext.beginPath();
    myContext.moveTo(700,600);
@@ -61,6 +47,35 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.lineTo(300,600);
    myContext.stroke();
 }">
+
+
+<input type=button value=".circle(95, 50, 40, 0, 2 * Math.PI)" onclick="{
+   myContext.beginPath();
+   myContext.lineWidth = 10;
+   myContext.strokeStyle = 'green';
+   myContext.arc(500, 500, 300, 0, 2 * Math.PI);
+   myContext.stroke();
+}">
+
+<input type=button value=".circle(95, 50, 40, 0, 2 * Math.PI)" onclick="{
+   myContext.beginPath();
+   myContext.lineWidth = 3;
+   myContext.strokeStyle = 'green';
+   myContext.arc(500, 600, 100, 0, 1 * Math.PI);
+   myContext.stroke();
+}">
+
+<input type=button value=".fillText('Hello World', 400, 100)" onclick="{
+   myContext.font = '20px Arial';
+   myContext.fillText('Hello World', 400, 100);
+   myContext.translate(400, 100);  
+   myContext.rotate(60 * Math.PI / 180); 
+   myContext.fillText('Hello World', 10, 10);
+   myContext.stroke();
+   myContext.resetTransform();  
+   //myContext.rotate(-60 * Math.PI / 180); 
+}">
+
 
 
 <input type=button value=".createLinearGradient(100, 300, 200, 400)" onclick="{
@@ -82,13 +97,6 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.clearRect(0, 0, myCanvas.width, myCanvas.height);
 }">
 
-<input type=button value=".circle(95, 50, 40, 0, 2 * Math.PI)" onclick="{
-   myContext.beginPath();
-   myContext.lineWidth = 10;
-   myContext.strokeStyle = 'green';
-   myContext.arc(500, 500, 300, 0, 2 * Math.PI);
-   myContext.stroke();
-}">
 
 <br><br>
 
