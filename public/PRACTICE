@@ -45,14 +45,22 @@ You use loops and variables to make fast fancy drawings <br><br>
    //myContext.rotate(-60 * Math.PI / 180); 
 }">
 
+
+
 <input type=button value=".quadraticCurveTo(100,220,240,110)" onclick="{
    myContext.beginPath();
-   myContext.moveTo(500,500);
-   myContext.quadraticCurveTo(510,330,510,420);
+   myContext.moveTo(700,600);
+   myContext.quadraticCurveTo(500,850,300,600);
    myContext.stroke();
 }">
 
-
+<input type=button value=".lineTo(30,200)" onclick="{
+   myContext.beginPath();
+   myContext.lineWidth = 3;   
+   myContext.moveTo(700,600);
+   myContext.lineTo(300,600);
+   myContext.stroke();
+}">
 
 
 <input type=button value=".createLinearGradient(100, 300, 200, 400)" onclick="{
