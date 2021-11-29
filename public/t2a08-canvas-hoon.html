@@ -1,55 +1,100 @@
 <h2 align=center>t2a08-canvas by Hoon</h2>
 You use loops and variables to make fast fancy drawings <br><br>
 
-<input type=button value=".lineTo(30,200)" onclick="{
+<input type=button value="left eye" onclick="{
    myContext.beginPath();
-   myContext.lineWidth = 1;   
-   myContext.moveTo(20,10);
-   myContext.lineTo(30,200);
+   myContext.lineWidth = 3;   
+   myContext.moveTo(350,400);
+   myContext.lineTo(420,470);
    myContext.stroke();
+   myContext.beginPath();
+   myContext.lineWidth = 3;   
+   myContext.moveTo(420,400);
+   myContext.lineTo(350,470);
+   myContext.stroke();   
 }">
 
-<input type=button value=".arc(95, 50, 40, 0, 2 * Math.PI)" onclick="{
+
+
+<input type=button value="right eye" onclick="{
+   myContext.beginPath();
+   myContext.lineWidth = 3;   
+   myContext.moveTo(650,400);
+   myContext.lineTo(570,470);
+   myContext.stroke();
+   myContext.beginPath();
+   myContext.lineWidth = 3;   
+   myContext.moveTo(570,400);
+   myContext.lineTo(650,470);
+   myContext.stroke();   
+}">
+
+
+
+<input type=button value="Mouth" onclick="{
+   myContext.beginPath();
+   myContext.moveTo(700,600);
+   myContext.quadraticCurveTo(500,850,300,600);
+   myContext.stroke();
+   myContext.beginPath();
+   myContext.lineWidth = 3;   
+   myContext.moveTo(700,600);
+   myContext.lineTo(300,600);
+   myContext.stroke();   
+}">
+
+
+
+
+<input type=button value="Face shape" onclick="{
    myContext.beginPath();
    myContext.lineWidth = 10;
    myContext.strokeStyle = 'green';
-   myContext.arc(95, 50, 40, 0, 2 * Math.PI);
+   myContext.arc(500, 500, 300, 0, 2 * Math.PI);
    myContext.stroke();
 }">
 
-<input type=button value=".fillText('Hello World', 400, 100)" onclick="{
+<input type=button value="tongue" onclick="{
+   myContext.beginPath();
+   myContext.lineWidth = 3;
+   myContext.strokeStyle = 'green';
+   myContext.arc(500, 600, 100, 0, 1 * Math.PI);
+   myContext.stroke();
+   myContext.beginPath();
+   myContext.lineWidth = 3;   
+   myContext.moveTo(500,600);
+   myContext.lineTo(500,700);
+   myContext.stroke();
+}">
+
+
+
+
+<input type=button value="Quote" onclick="{
    myContext.font = '20px Arial';
    myContext.fillText('Hello World', 400, 100);
    myContext.translate(400, 100);  
    myContext.rotate(60 * Math.PI / 180); 
-   myContext.fillText('Hello World', 10, 10);
+   myContext.fillText('HeLlO wOrLD', 10, 10);
    myContext.stroke();
    myContext.resetTransform();  
    //myContext.rotate(-60 * Math.PI / 180); 
 }">
 
-<input type=button value=".quadraticCurveTo(100,220,240,110)" onclick="{
-   myContext.beginPath();
-   myContext.moveTo(300,100);
-   myContext.quadraticCurveTo(100,220,240,110);
-   myContext.stroke();
-}">
-
-
-
-<input type=button value=".createLinearGradient(100, 300, 200, 400)" onclick="{
-   let myGradient = myContext.createLinearGradient(100, 300, 200, 400);
-   myGradient.addColorStop(0, 'red');
-   myGradient.addColorStop(0.5, 'blue');
-   myGradient.addColorStop(1, 'yellow');
-   myContext.fillStyle = myGradient;
-   myContext.fillRect(100, 300, 200, 400);
-   // reset fillstyle
-   myContext.fillStyle = 'black';
+<input type=button value="Sun" onclick="{
+	var context = document.getElementById('myCoolTag').getContext('2d');
+	var rg = context.createRadialGradient (80, 80, 20, 120, 120, 110);
+    rg.addColorStop (0, 'yellow');
+    rg.addColorStop (1, 'red');
+    context.fillStyle = rg;
+    context.beginPath();
+  	context.arc (120,120,110,0,2*Math.PI,false);
+  	context.fill();
+  	context.closePath();
 }"><br><br>
 
-<input type=button value="clearRect(20, 20, 50, 50)" onclick="{
-   myContext.clearRect(20, 20, 50, 50);
+<input type=button value="Erase Sun" onclick="{
+   myContext.clearRect(10, 10, 220, 220);
 }">
 
 <input type=button value="Clear all" onclick="{
