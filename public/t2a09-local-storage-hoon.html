@@ -22,3 +22,22 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
 <input type="button" value="Retrieve Text" onClick="{
    document.getElementById('myText1').value = localStorage.getItem('myStoredText')
 }"> 
+
+   
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 10) + 1);
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+  } 
+}
+</script>
+</head>
+<body>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
