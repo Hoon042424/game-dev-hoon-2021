@@ -21,7 +21,7 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
 
 <input type="button" value="Retrieve Text" onClick="{
    document.getElementById('myText1').value = localStorage.getItem('myStoredText')
-}"> 
+}"> <br><br>
 
    
 <script>
@@ -32,7 +32,7 @@ function clickCounter() {
     } else {
       localStorage.clickcount = 1;
     }
-    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+    document.getElementById("result").innerHTML = "You have dealt " + localStorage.clickcount + " damage(s).";
   } 
 }
 </script>
