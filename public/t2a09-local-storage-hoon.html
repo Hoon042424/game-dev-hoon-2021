@@ -26,6 +26,7 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
 <br><br>
 <hr>
 You have encountered a monster.
+
 <script>
 function clickCounter() {
   if (typeof(Storage) !== "undefined") {
@@ -36,10 +37,40 @@ function clickCounter() {
     }
     document.getElementById("result").innerHTML = "You have dealt " + localStorage.clickcount + " damage(s).";
   } 
+  if ( localStorage.clickcount < 50) {
+    document.getElementById("demo").innerHTML = "You are Level 1";
+  }
+  if ( localStorage.clickcount > 50) {
+    document.getElementById("demo").innerHTML = "You are Level 2";
+    localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 30) + 1);
+  }
+  if ( localStorage.clickcount > 200) {
+    document.getElementById("demo").innerHTML = "You are Level 3";
+    localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 70) + 1);
+  }
+  if ( localStorage.clickcount > 700) {
+    document.getElementById("demo").innerHTML = "You are Level 4";
+     localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 125) + 1);
+  }
+  if ( localStorage.clickcount > 1800) {
+    document.getElementById("demo").innerHTML = "You are Level 5";
+    localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 500) + 1);
+  }
+  if ( localStorage.clickcount > 5000) {
+    document.getElementById("demo").innerHTML = "You are at max Level";
+    localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 1000) + 1);
+  }
 }
 </script>
+
 </head>
 <body>
 
 <p><button onclick="clickCounter()" type="button">Hit!</button></p>
 <div id="result"></div>
+
+<p id="demo"></p>
+
+<button onclick="localStorage.clear()" type="button">Restart</button>
+
+
