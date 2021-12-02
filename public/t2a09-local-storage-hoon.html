@@ -57,7 +57,6 @@ function clickCounter() {
     localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 500) + 1);
   }
   if ( localStorage.clickcount > 50000) {
-    alert("Congratulation You have reached max level!");
     document.getElementById("demo").innerHTML = "You are at max Level";
     localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 1000) + 1);
   }
