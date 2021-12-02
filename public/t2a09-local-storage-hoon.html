@@ -40,7 +40,7 @@ function clickCounter() {
   if ( localStorage.clickcount < 50) {
     document.getElementById("demo").innerHTML = "You are Level 1";
   }
-  if ( localStorage.clickcount > 50) {
+  if ( localStorage.clickcount > 100) {
     document.getElementById("demo").innerHTML = "You are Level 2";
     localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 30) + 1);
   }
@@ -48,15 +48,15 @@ function clickCounter() {
     document.getElementById("demo").innerHTML = "You are Level 3";
     localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 70) + 1);
   }
-  if ( localStorage.clickcount > 1600) {
+  if ( localStorage.clickcount > 2100) {
     document.getElementById("demo").innerHTML = "You are Level 4";
      localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 125) + 1);
   }
-  if ( localStorage.clickcount > 5800) {
+  if ( localStorage.clickcount > 10000) {
     document.getElementById("demo").innerHTML = "You are Level 5";
     localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 500) + 1);
   }
-  if ( localStorage.clickcount > 20000) {
+  if ( localStorage.clickcount > 50000) {
     document.getElementById("demo").innerHTML = "You are at max Level";
     localStorage.clickcount = Number(localStorage.clickcount)+ Math.floor((Math.random() * 1000) + 1);
   }
