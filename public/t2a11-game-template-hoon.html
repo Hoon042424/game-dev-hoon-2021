@@ -54,12 +54,24 @@ function myCheckHit(){
     
 }">
 
-
-<input type=button value="Image Right Fast Button onTouchStart"="{this.click(); event.preventDefault();}" onclick="{
+<input type=button value="Image Left"="{this.click(); event.preventDefault();}" onclick="{
+  document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + -10 + 'px'
+  myCheckHit() 
+}">
+<input type=button value="Image Right"="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
-  myCheckHit()     // checks for all collisions
+  myCheckHit() 
+}">
+<input type=button value="Image Up"="{this.click(); event.preventDefault();}" onclick="{
+  document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + -10 + 'px'
+  myCheckHit() 
+}">
+<input type=button value="Image Down"="{this.click(); event.preventDefault();}" onclick="{
+  document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
+  myCheckHit() 
 }"><br><br>
 
 <br><br><br><br><br><br><br><br>   
 <img id="myImg01" style="position:absolute; width:100px; height:30px; top:350px; left:50px;"  src="flying-bullets-png-2.png">
 <img id="myImg02" style="position:absolute; width:100px; height:80px; top:320px; left:350px;" src="maario run.gif">
+
