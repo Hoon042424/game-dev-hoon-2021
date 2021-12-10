@@ -1,5 +1,3 @@
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="https://wallup.net/wp-content/uploads/2016/01/137355-nature-symmetry-sunlight-trees-reflection.jpg">
-
 <h1 align=center>t2a11 Game Template by Hoon</h1>
 <br><br><br><br>
 
@@ -17,9 +15,9 @@ function myHitOther(my1,my2){
    top1    = parseInt(document.getElementById(my1).style.top)   
    bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
    left2   = parseInt(document.getElementById(my2).style.left)
-   right2  = left2 + parseInt(document.getElementById(my2).style.width)
-   top2    = parseInt(document.getElementById(my2).style.top)   
-   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width) + -70
+   top2    = parseInt(document.getElementById(my2).style.top) + 20   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height) + -20
    if ((right1  >=  left2  ) &&      	   
        (bottom1 >=  top2   ) &&
        (left1   <=  right2 ) &&
@@ -33,6 +31,7 @@ function myCheckHit(){
    if ( myHitOther('myImg01','myImg02') ){
        alert('you lose')
        document.getElementById('myImg01').style.left = '50px'
+       document.getElementById('myImg01').style.top = '350px'
    }
 
    // more if statements here
@@ -74,4 +73,5 @@ function myCheckHit(){
 <br><br><br><br><br><br><br><br>   
 <img id="myImg01" style="position:absolute; width:100px; height:30px; top:350px; left:50px;"  src="flying-bullets-png-2.png">
 <img id="myImg02" style="position:absolute; width:100px; height:80px; top:320px; left:350px;" src="maario run.gif">
+
 
