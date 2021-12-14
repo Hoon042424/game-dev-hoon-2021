@@ -1,0 +1,48 @@
+ 
+<script>
+   let myInterval
+ 
+function myIsOnScreen(){
+   if (parseInt(document.getElementById('myDiv01').style.left) > 400) {
+     document.getElementById('myDiv01').style.left = '1px'
+   }
+}
+
+</script>
+
+<body onkeydown="{
+     let myKey = event.key
+     
+   if (myKey == 'd') {
+         document.getElementById('myDiv01').style.left = 
+             parseInt(document.getElementById('myDiv01').style.left) + 3
+   }
+
+     let myKey01 = event.key
+     
+   if (myKey01 == 'a') {
+         document.getElementById('myDiv01').style.left = 
+             parseInt(document.getElementById('myDiv01').style.left) + -3
+   }
+    
+    let myKey02 = event.key
+     
+   if (myKey02 == 'w') {
+         document.getElementById('myDiv01').style.top = 
+             parseInt(document.getElementById('myDiv01').style.top) + -3
+   }
+   
+   	let myKey03 = event.key
+     
+   if (myKey03 == 's') {
+         document.getElementById('myDiv01').style.top = 
+             parseInt(document.getElementById('myDiv01').style.top) + 3
+   }
+}">
+
+<h1 align=center>t1a13-onkeydown-fred</h1>
+<br>
+
+<div id="myDiv01" style="position:absolute; left:200; top:200; " >Bullet</div>
+
+</body>
