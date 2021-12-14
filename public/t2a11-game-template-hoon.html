@@ -56,25 +56,54 @@ function myCheckHit(){
     
 }">
 
-<input type=button value="Image Left"="{this.click(); event.preventDefault();}" onclick="{
+<input type=button value="Image Left(A)"="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + -10 + 'px'
   myCheckHit() 
 }">
-<input type=button value="Image Right"="{this.click(); event.preventDefault();}" onclick="{
+<input type=button value="Image Right(D)"="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit() 
 }">
-<input type=button value="Image Up"="{this.click(); event.preventDefault();}" onclick="{
+<input type=button value="Image Up(W)"="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + -10 + 'px'
   myCheckHit() 
 }">
-<input type=button value="Image Down"="{this.click(); event.preventDefault();}" onclick="{
+<input type=button value="Image Down(S)"="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
   myCheckHit() 
-}"><br><br>
+}">
+
+<body onkeydown="{
+     let myKey = event.key
+     
+   if (myKey == 'd') {
+         document.getElementById('myImg01').style.left = 
+             parseInt(document.getElementById('myImg01').style.left) + 5
+   }
+     let myKey01 = event.key
+     
+   if (myKey01 == 'a') {
+         document.getElementById('myImg01').style.left = 
+             parseInt(document.getElementById('myImg01').style.left) + -5
+   }
+    
+    let myKey02 = event.key
+     
+   if (myKey02 == 'w') {
+         document.getElementById('myImg01').style.top = 
+             parseInt(document.getElementById('myImg01').style.top) + -5
+   }
+   
+   	let myKey03 = event.key
+     
+   if (myKey03 == 's') {
+         document.getElementById('myImg01').style.top = 
+             parseInt(document.getElementById('myImg01').style.top) + 5
+   }
+   myCheckHit()
+}">
+<br><br>
 
 <br><br><br><br><br><br><br><br>   
 <img id="myImg01" style="position:absolute; width:100px; height:30px; top:350px; left:50px;"  src="flying-bullets-png-2.png">
 <img id="myImg02" style="position:absolute; width:100px; height:80px; top:335px; left:350px;" src="maario run.gif">
-
-
