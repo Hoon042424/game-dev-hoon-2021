@@ -1,1 +1,74 @@
+<script>
+   let myInterval
+ 
+function myIsOnScreen(){
+   if (parseInt(document.getElementById('myImg01').style.left) > 400) {
+     document.getElementById('myImg01').style.left = '1px'
+   }
+   if (parseInt(document.getElementById('myImg01').style.left) < 1) {
+     document.getElementById('myImg01').style.left = '400px'
+   }
+   if (parseInt(document.getElementById('myImg01').style.top) > 400) {
+     document.getElementById('myImg01').style.top = '100px'
+   }
+   if (parseInt(document.getElementById('myImg01').style.top) < 100) {
+     document.getElementById('myImg01').style.top = '400px'
+   }
+}
 
+</script>
+
+<body onkeydown="{
+     let myKey = event.key
+  // let myKey = String.toLowerCase(event.key)
+   if (myKey == 'd') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+   
+         document.getElementById('myImg01').style.left = 
+             parseInt(document.getElementById('myImg01').style.left) + 3
+         myIsOnScreen()
+      } ,20)
+   }
+     let myKey01 = event.key
+  // let myKey01 = String.toLowerCase(event.key)
+   if (myKey01 == 'a') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+   
+         document.getElementById('myImg01').style.left = 
+             parseInt(document.getElementById('myImg01').style.left) + -3
+         myIsOnScreen()
+      } ,20)
+   }
+   let myKey02 = event.key
+  // let myKey02 = String.toLowerCase(event.key)
+   if (myKey02 == 'w') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+   
+         document.getElementById('myImg01').style.top = 
+             parseInt(document.getElementById('myImg01').style.top) + -3
+         myIsOnScreen()
+      } ,20)
+   }
+   let myKey03 = event.key
+  // let myKey03 = String.toLowerCase(event.key)
+   if (myKey03 == 's') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+   
+         document.getElementById('myImg01').style.top = 
+             parseInt(document.getElementById('myImg01').style.top) + 3
+         myIsOnScreen()
+      } ,20)
+   }
+}">
+
+
+<h1 align=center>f</h1>
+Get WASD working, what about a second object controlled by arrows or IJKL<br>
+
+<img id="myImg01" style="position:absolute; width:100px; height:30px; top:200px; left:200px;"  src="flying-bullets-png-2.png">
+
+</body>
