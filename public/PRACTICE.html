@@ -1,32 +1,103 @@
- 
-<script>
-   let myInterval
- 
-function myIsOnScreen(){
-   if (parseInt(document.getElementById('myDiv01').style.left) > 400) {
-     document.getElementById('myDiv01').style.left = '397px'
-   }
-}
-
-</script>
-
 <body onkeydown="{
      let myKey = event.key
- //  let myKey = String.toLowerCase(event.key)
+  // let myKey = String.toLowerCase(event.key)
    if (myKey == 'd') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
    
-         document.getElementById('myDiv01').style.left = 
-             parseInt(document.getElementById('myDiv01').style.left) + 3
+         document.getElementById('myImg01').style.left = 
+             parseInt(document.getElementById('myImg01').style.left) + 3
          myIsOnScreen()
-      } ,20)
+      } ,10)
+   }
+     let myKey01 = event.key
+  // let myKey01 = String.toLowerCase(event.key)
+   if (myKey01 == 'a') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+   
+         document.getElementById('myImg01').style.left = 
+             parseInt(document.getElementById('myImg01').style.left) + -3
+         myIsOnScreen()
+      } ,10)
+   }
+   let myKey02 = event.key
+  // let myKey02 = String.toLowerCase(event.key)
+   if (myKey02 == 'w') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+   
+         document.getElementById('myImg01').style.top = 
+             parseInt(document.getElementById('myImg01').style.top) + -3
+         myIsOnScreen()
+      } ,10)
+   }
+   let myKey03 = event.key
+  // let myKey03 = String.toLowerCase(event.key)
+   if (myKey03 == 's') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+   
+         document.getElementById('myImg01').style.top = 
+             parseInt(document.getElementById('myImg01').style.top) + 3
+         myIsOnScreen()
+      } ,10)
    }
 }">
 
-<h1 align=center>t1a13-onkeydown-fred</h1>
-Get WASD working, what about a second object controlled by arrows or IJKL<br>
+<img id="myImg01" style="position:absolute; width:50px; height:50px; top:200px; left:200px;"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Square_1.svg/1200px-Square_1.svg.png">
+<canvas id="myCanvas" width="1550" height="725" style="border:1px solid #000000;"></canvas>
 
-<div id="myDiv01" style="position:absolute; left:200; top:200; " >Fred</div>
+<script>
+ let myInterval
+ 
+ 
+ 
+function myIsOnScreen(){
+   if (parseInt(document.getElementById('myImg01').style.left) > 1510) {
+     document.getElementById('myImg01').style.left = '7px'
+   }
+   if (parseInt(document.getElementById('myImg01').style.left) < 7) {
+     document.getElementById('myImg01').style.left = '1510px'
+   }
+   if (parseInt(document.getElementById('myImg01').style.top) > 762) {
+     document.getElementById('myImg01').style.top = '85px'
+   }
+   if (parseInt(document.getElementById('myImg01').style.top) < 85) {
+     document.getElementById('myImg01').style.top = '762px'
+   }
+}
 
-</body>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var ballRadius = 20;
+    var x = canvas.width/2;
+    var y = canvas.height-30;
+    var dx = 2;
+    var dy = -2;
+
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+
+        if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+            dx = -dx;
+        }
+        if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+            dy = -dy;
+        }
+
+        x += dx;
+        y += dy;
+    }
+
+    setInterval(draw, 1);
+</script>
