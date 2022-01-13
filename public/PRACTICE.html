@@ -60,7 +60,7 @@ div {
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/640px-Circle_-_black_simple.svg.png" id="image" style="position: absolute; width:50px; height:50px; top:500px; left:500px; " />
 </div>
 <img id="myImg01" style="position:absolute; width:50px; height:50px; top:200px; left:200px;"  src= "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Square_1.svg/1200px-Square_1.svg.png">
-<canvas id="canvas" width="1550" height="725" style="border:1px solid #000000;"></canvas>
+<canvas id="canvas" style="border:1px solid #000000;"></canvas>
 
 <script>
  let myInterval
@@ -68,11 +68,11 @@ div {
  
  
 function myIsOnScreen(){
-   if (parseInt(document.getElementById('myImg01').style.left) > 1510) {
+   if (parseInt(document.getElementById('myImg01').style.left) > 960) {
      document.getElementById('myImg01').style.left = '7px'
    }
    if (parseInt(document.getElementById('myImg01').style.left) < 7) {
-     document.getElementById('myImg01').style.left = '1510px'
+     document.getElementById('myImg01').style.left = '960px'
    }
    if (parseInt(document.getElementById('myImg01').style.top) > 680) {
      document.getElementById('myImg01').style.top = '10px'
@@ -84,7 +84,7 @@ function myIsOnScreen(){
 
 var canvas = document.getElementById("canvas");
 var canvasObject = canvas.getContext("2d");
-canvas.width = 800;
+canvas.width = 1000;
 canvas.height = 725;
 var pos = {
   x: 100,
@@ -186,3 +186,4 @@ setInterval(function() {
             }
 </script>            
             
+
