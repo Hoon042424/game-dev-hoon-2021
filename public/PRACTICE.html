@@ -1,3 +1,15 @@
+<style>
+
+div {
+                float: left;
+            }
+            
+            #page_Wrapper {
+                
+            }
+</style>  
+
+
 <body onkeydown="{
      let myKey = event.key
   // let myKey = String.toLowerCase(event.key)
@@ -44,8 +56,10 @@
       } ,10)
    }
 }">
-
-<img id="myImg01" style="position:absolute; width:50px; height:50px; top:200px; left:200px;"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Square_1.svg/1200px-Square_1.svg.png">
+<div id="target">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/640px-Circle_-_black_simple.svg.png" id="image" style="position: absolute; width:50px; height:50px; top:200px; left:200px; " />
+</div>
+<img id="myImg01" style="position:absolute; width:50px; height:50px; top:200px; left:200px;"  src= "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Square_1.svg/1200px-Square_1.svg.png">
 <canvas id="canvas" width="1550" height="725" style="border:1px solid #000000;"></canvas>
 
 <script>
@@ -145,4 +159,30 @@ setInterval(function() {
     balls[index].updateBall();
   }
 }, 10);
-</script>
+
+ window.onLoad = Prep();
+            
+            function Prep(){
+                window_Height = window.innerHeight;
+                window_Width = window.innerWidth;
+                
+                image_Element = document.getElementById("image");
+                image_Height = image_Element.clientHeight;
+                image_Width = image_Element.clientWidth;
+                
+                availSpace_V = window_Height - image_Height;
+                availSpace_H = window_Width - image_Width;
+                
+                var changeInterval = 1000; 
+                setInterval(moveImage, changeInterval);
+            }
+            
+            function moveImage(){
+                var randNum_V = Math.round(Math.random() * availSpace_V);
+                var randNum_H = Math.round(Math.random() * availSpace_H);
+                
+                image_Element.style.top = randNum_V + "px";
+                image_Element.style.left = randNum_H + "px";
+            }
+</script>            
+            
