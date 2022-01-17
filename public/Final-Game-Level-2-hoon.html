@@ -1,1 +1,211 @@
-Hello
+<div id="target"> 
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/640px-Circle_-_black_simple.svg.png" id="image" style="position: absolute; width:50px; height:50px; top:500px; left:500px; ;" /> 
+</div> 
+<img id="myImg01" style="position:absolute; width:40px; height:40px; top:200px; left:200px;"  src= "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Square_1.svg/1200px-Square_1.svg.png"> 
+<canvas id="canvas" style="border:1px solid #000000;"></canvas> 
+<script> 
+let myInterval
+
+var alerted = false;
+
+
+
+function myHitOther(my1,my2){ 
+   left1   = parseInt(document.getElementById(my1).style.left) 
+   right1  = left1 + parseInt(document.getElementById(my1).style.width) 
+   top1    = parseInt(document.getElementById(my1).style.top)    
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height) 
+   left2   = parseInt(document.getElementById(my2).style.left) 
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)  
+   top2    = parseInt(document.getElementById(my2).style.top)    
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)  
+   if ((right1  >=  left2 + 20 ) &&          
+       (bottom1 >=  top2  + 20 ) && 
+       (left1   <=  right2 + -20 ) && 
+       (top1    <=  bottom2 + -20) ){ 
+         return true 
+  } 
+} 
+function myCheckHit(){ 
+   if ( myHitOther('myImg01','image') ){ 
+         alert('you won')
+         clearInterval(myInterval)
+         location.replace("https://www.w3schools.com")
+  } 
+} 
+document.addEventListener('keydown', function (event) { 
+  let myKey = event.key 
+   if (myKey == 'd') { 
+        clearInterval(myInterval) 
+        myInterval = setInterval(function(){ 
+        
+             document.getElementById('myImg01').style.left =  
+                 parseInt(document.getElementById('myImg01').style.left) + 3 
+             myIsOnScreen() 
+             myCheckHit() 
+       } ,10) 
+ } 
+   let myKey01 = event.key 
+ if (myKey01 == 'a') { 
+      clearInterval(myInterval) 
+      myInterval = setInterval(function(){ 
+      
+           document.getElementById('myImg01').style.left =  
+               parseInt(document.getElementById('myImg01').style.left) + -3 
+           myIsOnScreen() 
+           myCheckHit() 
+     } ,10) 
+ } 
+ let myKey02 = event.key 
+ if (myKey02 == 'w') { 
+      clearInterval(myInterval) 
+      myInterval = setInterval(function(){ 
+      
+           document.getElementById('myImg01').style.top =  
+               parseInt(document.getElementById('myImg01').style.top) + -3 
+           myIsOnScreen() 
+           myCheckHit() 
+     } ,10) 
+ } 
+ let myKey03 = event.key 
+ if (myKey03 == 's') { 
+      clearInterval(myInterval) 
+      myInterval = setInterval(function(){ 
+      
+           document.getElementById('myImg01').style.top =  
+               parseInt(document.getElementById('myImg01').style.top) + 3 
+           myIsOnScreen() 
+           myCheckHit() 
+     } ,10) 
+ } 
+}); 
+function myIsOnScreen(){ 
+   if (parseInt(document.getElementById('myImg01').style.left) > 960) { 
+       document.getElementById('myImg01').style.left = '7px' 
+  } 
+  if (parseInt(document.getElementById('myImg01').style.left) < 7) { 
+      document.getElementById('myImg01').style.left = '960px' 
+ } 
+ if (parseInt(document.getElementById('myImg01').style.top) > 680) { 
+     document.getElementById('myImg01').style.top = '10px' 
+ } 
+ if (parseInt(document.getElementById('myImg01').style.top) < 10) { 
+     document.getElementById('myImg01').style.top = '680px' 
+ } 
+} 
+var canvas = document.getElementById("canvas"); 
+var canvasObject = canvas.getContext("2d"); 
+canvas.width = 1000; 
+canvas.height = 725; 
+var pos = { 
+  x: 100, 
+  y: 100, 
+}; 
+var numberOfBalls = 10; 
+class Ball { 
+  constructor(pos) { 
+      this.pos = pos; 
+      this.radius = Math.floor(15); 
+      this.color = randomColor(); 
+      this.dx = Math.floor(Math.random() * 5 + 1); 
+      this.dy = -Math.floor(Math.random() * 5 + 1); 
+ } 
+ drawBall() { 
+     canvasObject.beginPath(); 
+     canvasObject.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI); 
+     canvasObject.fillStyle = this.color; 
+     canvasObject.fill(); 
+     canvasObject.closePath(); 
+} 
+updateBall() { 
+    if ( 
+      this.pos.x + this.dx > canvas.width - this.radius || 
+      this.pos.x + this.dx < this.radius 
+    ) { 
+        this.dx = -this.dx; 
+   } 
+   if ( 
+     this.pos.y + this.dy > canvas.height - this.radius || 
+     this.pos.y + this.dy < this.radius 
+   ) { 
+       this.dy = -this.dy; 
+  } 
+  this.pos.x += this.dx; 
+  this.pos.y += this.dy; 
+  canvasObject.beginPath(); 
+  canvasObject.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI); 
+  canvasObject.fillStyle = this.color; 
+  canvasObject.fill(); 
+
+
+//  console.log("X:" + (this.pos.x + canvas.offsetLeft) + " Y:" + (this.pos.y + canvas.offsetTop));
+//  console.log("MY_SPAURE_X:" + (document.getElementById('myImg01').style.left.replace("px","")) + " MY_SPAURE_Y:" + (document.getElementById('myImg01').style.top.replace("px",""))); 
+  var ballWidth = 30;
+  var ballHeight = 30;
+  var ballLeft = (this.pos.x + canvas.offsetLeft - (ballWidth/2) + 1);
+  var ballTop = (this.pos.y + canvas.offsetTop - (ballHeight/2) + 1);
+
+  var spuareLeft = parseInt(document.getElementById('myImg01').style.left.replace("px",""));
+  var spuareRight = spuareLeft + 40;
+  var spuareTop = parseInt(document.getElementById('myImg01').style.top.replace("px",""));
+  var spuareBottom = spuareTop + 40;
+  if((spuareLeft >= ballLeft + 5 && spuareLeft <= (ballLeft + ballWidth)) || (spuareRight >= ballLeft && spuareRight <= (ballLeft + ballWidth))) {
+	if((spuareTop >= ballTop && spuareTop <= (ballTop + ballHeight)) || spuareBottom >= ballTop + 10 && spuareBottom <= (ballTop + ballHeight)) {
+		alert("Game Over!");
+		clearInterval(myInterval);
+		clearInterval(ballInterval);
+        location.reload();
+		return false;
+		}
+	}
+} 
+} 
+function randomColor() { 
+  const rc1 = Math.random() * 16777215; 
+  const rc2 = Math.floor(rc1); 
+  const rc3 = rc2.toString(16); 
+  return "#" + rc3; 
+} 
+function randomPos() { 
+  pos = { 
+      x: Math.floor(Math.random() * canvas.width), 
+      y: Math.floor(Math.random() * canvas.height), 
+ }; 
+ return pos; 
+} 
+var balls = []; 
+for (let index = 0; index < numberOfBalls; index++) { 
+  balls.push(new Ball(randomPos())); 
+  balls[index].drawBall(); 
+}  
+var ballInterval = setInterval(function() {
+canvasObject.clearRect(0, 0, canvas.width, canvas.height);
+for (let index = 0; index < numberOfBalls; index++) {
+balls[index].updateBall();
+}
+}, 12); 
+window.onLoad = Prep(); 
+           
+          function Prep(){ 
+                window_Height = window.innerHeight; 
+                window_Width = window.innerWidth; 
+                 
+                image_Element = document.getElementById("image"); 
+                image_Height = image_Element.clientHeight; 
+                image_Width = image_Element.clientWidth; 
+                 
+                availSpace_V = canvas.height - image_Height; 
+                availSpace_H = canvas.width - image_Width; 
+                 
+                var changeInterval = 600;  
+                setInterval(moveImage, changeInterval); 
+          } 
+           
+          function moveImage(){ 
+                var randNum_V = Math.round(Math.random() * availSpace_V); 
+                var randNum_H = Math.round(Math.random() * availSpace_H); 
+                 
+                image_Element.style.top = randNum_V + "px"; 
+                image_Element.style.left = randNum_H + "px"; 
+          } 
+</script>
