@@ -1,12 +1,4 @@
-<style> 
-div { 
-                float: left; 
-          } 
-           
-          #page_Wrapper { 
-                 
-          } 
-</style>   
+  
 <div id="target"> 
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle_-_black_simple.svg/640px-Circle_-_black_simple.svg.png" id="image" style="position: absolute; width:50px; height:50px; top:500px; left:500px; ;" /> 
 </div> 
@@ -154,11 +146,14 @@ updateBall() {
   var spuareTop = parseInt(document.getElementById('myImg01').style.top.replace("px",""));
   var spuareBottom = spuareTop + 40;
   if((spuareLeft >= ballLeft && spuareLeft <= (ballLeft + ballWidth)) || (spuareRight >= ballLeft && spuareRight <= (ballLeft + ballWidth))) {
-	  if((spuareTop >= ballTop && spuareTop <= (ballTop + ballHeight)) || spuareBottom >= ballTop && spuareBottom <= (ballTop + ballHeight)) {
-		  alert("Game Over");
-          location.reload();
-	  }
-  }
+	if((spuareTop >= ballTop && spuareTop <= (ballTop + ballHeight)) || spuareBottom >= ballTop && spuareBottom <= (ballTop + ballHeight)) {
+		alert("충돌!! Game End!");
+		clearInterval(myInterval);
+		clearInterval(ballInterval);
+        location.reload();
+		return false;
+		}
+	}
 } 
 } 
 function randomColor() { 
@@ -178,12 +173,12 @@ var balls = [];
 for (let index = 0; index < numberOfBalls; index++) { 
   balls.push(new Ball(randomPos())); 
   balls[index].drawBall(); 
-} 
-setInterval(function() { 
-  canvasObject.clearRect(0, 0, canvas.width, canvas.height); 
-  for (let index = 0; index < numberOfBalls; index++) { 
-      balls[index].updateBall(); 
- } 
+}  
+var ballInterval = setInterval(function() {
+canvasObject.clearRect(0, 0, canvas.width, canvas.height);
+for (let index = 0; index < numberOfBalls; index++) {
+balls[index].updateBall();
+}
 }, 12); 
 window.onLoad = Prep(); 
            
