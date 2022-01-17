@@ -147,7 +147,7 @@ updateBall() {
   var spuareBottom = spuareTop + 40;
   if((spuareLeft >= ballLeft && spuareLeft <= (ballLeft + ballWidth)) || (spuareRight >= ballLeft && spuareRight <= (ballLeft + ballWidth))) {
 	if((spuareTop >= ballTop && spuareTop <= (ballTop + ballHeight)) || spuareBottom >= ballTop && spuareBottom <= (ballTop + ballHeight)) {
-		alert("충돌!! Game End!");
+		alert("Game Over!");
 		clearInterval(myInterval);
 		clearInterval(ballInterval);
         location.reload();
