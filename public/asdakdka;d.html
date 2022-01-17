@@ -19,7 +19,7 @@ var dino = {
     }
 }
 
-class cactus {
+class Cactus {
 	constructor(){
     	this.x = 500;
         this.y = 200;
@@ -49,12 +49,12 @@ function 프레임마다실행할거(){
         cactus여러개.push(cactus);
     }
     
-    cactus여러개.forEach((a)=>{
+    cactus여러개.forEach((a, i, o)=>{
     	if (a.x < 0){
         	o.splice(i, 1)
         }
     	a.x--;
-        myCheckHit(dino, a);
+        충돌하냐(dino, a);
         
         a.draw();
     })
@@ -77,14 +77,14 @@ function 프레임마다실행할거(){
 
 프레임마다실행할거;
 
-function myCheckHit(dino, cactus){
+function 충돌하냐(dino, cactus){
 	var x축차이 = cactus.x - (dino.x + dino.width);
     var y축차이 = cactus.y - (dino.y + dino.height);
 	if (x축차이 < 0 && y축차이 < 0){
     	ctx.clearRect(0,0, canvas.width, canvas.height);
         cancelAnimationFrame(animation)
     }
-    
+}
 
 var 점프중 = false;
 document.addEventListener('keydown', function(e){
